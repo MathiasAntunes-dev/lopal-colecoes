@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+    <script>
+        let alunos = ["Aline", "Arthur", "Bárbara", "Bruna Luise", "Bruna Torres", "Bruna Velôso", "Cauã", "Daniel", "Davi"];
+
+        let escolha = prompt("Você deseja adicionar mais algum nome? Digite 1 para Sim ou 2 para Não.");
+
+        if (escolha == 1){
+            let resposta = prompt("Escreva o nome abaixo:");
+            alunos.push(resposta);
+            }
+        else (escolha == 2)
+            for (let indice = 0; indice < alunos.length; indice++){
+                document.write(alunos[indice] + "<br>");
+            }
+
+
+        // Desenvolva uma forma de solicitar ao usuário os demais nomes que devem ser acrescentados à lista de alunos:
+        // - O programa deve perguntar ao usuário se ele deseja acrescentar um nome;
+        // - O programa deve adicionar o nome digitado pelo usuário ao final da lista "alunos";
+        // - O programa deve perguntar se o usuário quer digitar mais um nome. Caso não, ele deve exibir a lista de nomes completa na tela e finalizar o programa.
+        
+
+    </script>
+</body>
+</html>
