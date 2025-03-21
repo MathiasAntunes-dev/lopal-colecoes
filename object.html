@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+<body>
+    <button type="button" onclick="adicionarAlunos()">Adicionar Aluno</button>
+    <button type="button" onclick="removerAlunos()">Remover Aluno</button>
+    <br>
+    <output></output>
+    <script>
+
+        // let aluno = {
+        //     nome: 'Aline',
+        //     idade: 15,
+        //     sesi: 'Ipiranga',
+        //     temPet: true
+        // }
+
+        // console.log(aluno);
+
+        // document.write('Nome: ' + aluno.nome + '<br>');
+        // document.write('Idade: ' + aluno.idade + '<br>');
+        // document.write('SESI: ' + aluno.sesi + '<br>');
+        // document.write('Tem pet?: ' + aluno.temPet + '<br>');
+
+        let alunos = [];
+
+            function imprimirAlunos() {
+                
+                document.querySelector('output').innerHTML = '<h1>Lista de alunos</h1>';
+
+                for (let indice = 0; indice < alunos.length; indice++){
+                    document.querySelector('output').innerHTML += alunos[indice] + '<br>';
+                }
+                
+            }
+
+            function adicionarAlunos() {
+
+                let novoAluno = prompt('Digite o nome do(a) aluno(a):');
+                alunos.push(novoAluno);
+
+                opcaoUsuario = confirm('Deseja Adicionar mais um aluno?');
+
+                while(opcaoUsuario){
+                    adicionarAlunos();
+                }
+                
+                imprimirAlunos();
+
+            }
+
+            imprimirAlunos(); 
+
+             function removerAlunos() {
+
+                let remover = confirm('Você tem certeza que deseja remover o último aluno digitado?');
+                alunos.pop();
+
+                imprimirAlunos();
+
+            }
+
+            
+
+        let aluno = [
+            {nome: 'Aline', idade: 15, sesi: 'Ipiranga', temPet: true},
+            {nome: 'Bárbara', idade: 16, sesi: 'Vila Leopoldina', temPet: true},
+            
+        ];
+
+        for (let i = 0; i < aluno.length; i++){
+
+            document.write(`<p>O(a) aluno(a) ${aluno[i].nome} tem ${aluno[i].idade} anos e é do SESI ${aluno[i].sesi}. ${aluno[i].temPet ? "Tem Pet." : "Não tem pet."}</p>`)
+        }
+
+
+
+        // Atividade: Objetos
+        // Crie um programa que solicite ao usuário os dados dos alunos (nome, idade, SESI e se possui pet ou não). O programa deve perguntar ao usuário se ele desejar continuar cadastrando alunos. Os dados dos alunos devem ser organizados em um array ou mapa de objetos como na demonstração (você pode começar com um array vazio, sem alunos cadastrados). Utilize um botão para executar a ação de cadastrar alunos. Essa opção deve ser executada mais de uma vez para acrescentar outros alunos, se o usuário desejar. O outro usuário deve ser capaz de remover os dados do último aluno cadastrado, se desejar. Utilize uma tag <output> para exibir os dados cadastrados.
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps</title>
+</head>
+<body>
+    <script>
+
+        const dataDeHoje = new Date().getDay();
+
+        const mapaDeDias = new Map([
+            [0, 'domingo'],
+            [1, 'segunda-feira'],
+            [2, 'terça-feira'],
+            [3, 'quarta-feira'],
+            [4, 'quinta-feira'],
+            [5, 'sexta-feira'],
+            [6, 'sábado']
+        ]);
+
+        document.write('<p>Hoje é ' + mapaDeDias.get(dataDeHoje) + '!</p>');
+        document.write(`<p>Hoje é ${mapaDeDias.get(dataDeHoje)}!</p>`);
+    </script>
+</body>
+</html>

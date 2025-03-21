@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Alunos</title>
+</head>
+<body>
+
+  <h1>Cadastro de Alunos</h1>
+
+  <div class="container">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" placeholder="Digite o nome do aluno">
+
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade" placeholder="Digite a idade do aluno">
+
+    <label for="se_si">SESI:</label>
+    <input type="text" id="se_si" placeholder="Digite o SESI do aluno">
+
+    <label for="temPet">Possui pet?</label>
+    <select id="temPet">
+      <option value="sim">Sim</option>
+      <option value="não">Não</option>
+    </select>
+
+    <button onclick="cadastrarAluno()">Cadastrar Aluno</button>
+    <button onclick="removerUltimoAluno()">Remover Último Aluno</button>
+  </div>
+
+  <h3>Alunos Cadastrados:</h3>
+  <output id="outputDados"></output>
+
+  <script>
+    // Array para armazenar os dados dos alunos
+    let alunos = [];
+
+    // Função para cadastrar aluno
+    function cadastrarAluno() {
+      const nome = document.getElementById('nome').value;
+      const idade = document.getElementById('idade').value;
+      const seSi = document.getElementById('se_si').value;
+      const temPet = document.getElementById('temPet').value;
+
+      // Validação para garantir que todos os campos foram preenchidos
+      if (nome && idade && seSi && temPet) {
+        // Criar um objeto com os dados do aluno
+        const aluno = {
+          nome: nome,
+          idade: idade,
+          seSi: seSi,
+          temPet: temPet
+        };
+
+        // Adicionar o aluno ao array de alunos
+        alunos.push(aluno);
+
+        // Atualizar a exibição dos alunos cadastrados
+        exibirAlunos();
+
+        // Limpar os campos de entrada
+        document.getElementById('nome').value = '';
+        document.getElementById('idade').value = '';
+        document.getElementById('se_si').value = '';
+        document.getElementById('temPet').value = 'sim';
+      } else {
+        alert('Por favor, preencha todos os campos.');
+      }
+    }
+
+    // Função para remover o último aluno cadastrado
+    function removerUltimoAluno() {
+      if (alunos.length > 0) {
+        alunos.pop(); // Remover o último aluno do array
+        exibirAlunos(); // Atualizar a exibição
+      } else {
+        alert('Não há alunos para remover.');
+      }
+    }
+
+    // Função para exibir os alunos cadastrados
+    function exibirAlunos() {
+      const output = document.getElementById('outputDados');
+      output.innerHTML = ''; // Limpar o conteúdo antes de atualizar
+
+      // Verificar se há alunos cadastrados
+      if (alunos.length > 0) {
+        alunos.forEach((aluno, index) => {
+          output.innerHTML += `<p>Aluno ${index + 1}:<br>Nome: ${aluno.nome}<br>Idade: ${aluno.idade}<br>SESI: ${aluno.seSi}<br>Possui pet: ${aluno.temPet}</p>`;
+        });
+      } else {
+        output.innerHTML = '<p>Nenhum aluno cadastrado.</p>';
+      }
+    }
+  </script>
+  
+</body>
+</html>
